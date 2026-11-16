@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FAF6ED;
+  --foreground: #2A1F19;
+}
+
+body {
+  background-color: #FAF6ED;
+  color: #2A1F19;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Warm Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F5ECE0;
+}
+::-webkit-scrollbar-thumb {
+  background: #DFCAB4;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C85A32;
+}
+
+/* Leaflet Customizations for Indian Aesthetic */
+.leaflet-container {
+  font-family: inherit;
+  background-color: #FAF6ED !important;
+}
+
+/* Pin Drop Mode Precision Crosshair Cursor Override */
+.pin-drop-active,
+.pin-drop-active *,
+.pin-drop-active .leaflet-container,
+.pin-drop-active .leaflet-pane,
+.pin-drop-active .leaflet-tile-pane,
+.pin-drop-active .leaflet-overlay-pane,
+.pin-drop-active .leaflet-marker-pane,
+.pin-drop-active .leaflet-grab,
+.pin-drop-active .leaflet-interactive,
+.pin-drop-active path {
+  cursor: crosshair !important;
+}
+
+/* Warm Carto/OSM Tile Filter to enhance warm cream & terracotta tones */
+.leaflet-tile-pane {
+  filter: contrast(102%) saturate(108%) sepia(8%);
+}
+
+.leaflet-warm-popup .leaflet-popup-content-wrapper {
+  background-color: #FFFDF9;
+  color: #2A1F19;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px -4px rgba(184, 74, 36, 0.18), 0 4px 8px -2px rgba(200, 90, 50, 0.08);
+  border: 1px solid #EBDCCE;
+  padding: 4px;
+}
+
+.leaflet-warm-popup .leaflet-popup-tip {
+  background-color: #FFFDF9;
+  border: 1px solid #EBDCCE;
+}
+
+.leaflet-custom-tooltip {
+  background-color: #FFFDF9 !important;
+  color: #2A1F19 !important;
+  border: 1px solid #DFCAB4 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+  font-size: 11px !important;
+  padding: 4px 8px !important;
+}
+
+/* Print Optimization for Requirement 5 (Printable Site Viability Report) */
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  
+  header,
+  .print\\:hidden,
+  button,
+  .leaflet-control-container {
+    display: none !important;
+  }
+
+  .print\\:fixed {
+    position: static !important;
+  }
+}
